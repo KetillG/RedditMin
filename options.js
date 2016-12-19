@@ -26,7 +26,6 @@ function restore_options() {
     hoverColor: "B1B1B1",
     mButton: true
   }, function(items) {
-    console.log(items);
     document.getElementById('defC').style.backgroundColor = '#' + items.defaultColor;
     document.getElementById('hovC').style.backgroundColor = '#' + items.hoverColor;
     document.getElementById('hides').checked = items.mButton;

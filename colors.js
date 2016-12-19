@@ -25,9 +25,7 @@ chrome.storage.sync.get({
   if(items.mButton === true)
   {
     cButton = "color: transparent;"
-    console.log(cButton);
   }
-  console.log(items);
   var css = ".comment .expand { position: absolute; top: 0; left: 0; bottom: 0; width: 2em; text-align: center; background-color: " + bColor + ";" + cButton + " font-size: 10px; transition: color .15s,background-color .15s; } .comment .expand { margin-right: 3px; padding: 1px; } .commentarea>.sitetable>.comment { background: #fff; box-shadow: 0px 1px 5px rgba(0,0,0,.16); border: none!important; margin-bottom: 10px; margin-left: 0; } .comment { overflow: none!important; } .comment, body.res-commentBoxes .comment, html body.res .comment { position: relative; padding: 10px 10px 10px 2.5em!important; padding-left: 2.5em!important; border: 1px solid #EEE; } .comment .expand:hover { text-decoration: none; color: inherit; background-color: " + hColor +";" + cButton + " }";
   style = document.createElement('style');
   if (style.styleSheet) {
