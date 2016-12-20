@@ -5,12 +5,15 @@ function save_options() {
   var colorC = document.getElementById('colC').value;
   var mHide = document.getElementById('hides').checked;
   var scroll = document.getElementById('scrolls').checked;
+  var widthB = document.getElementById("myRange").value;
+  console.log(widthB);
   chrome.storage.sync.set({
     defaultColor: colorD,
     hoverColor: colorH,
     collapsedColor: colorC,
     mButton: mHide,
-    scroll: scroll
+    scroll: scroll,
+    widthS: widthB
   }, function() {
     // Update status to let user know options were saved.
     var status = document.getElementById('status');
@@ -30,13 +33,15 @@ function restore_options() {
     hoverColor: "B1B1B1",
     collapsedColor: "A1A1A1",
     mButton: true,
-    scroll: true
+    scroll: true,
+    widthS: 100
   }, function(items) {
     document.getElementById('defC').style.backgroundColor = '#' + items.defaultColor;
     document.getElementById('hovC').style.backgroundColor = '#' + items.hoverColor;
     document.getElementById('colC').style.backgroundColor = '#' + items.collapsedColor;
     document.getElementById('hides').checked = items.mButton;
-    document.getElementById('scrolls').checked = items.mButton;
+    document.getElementById('scrolls').checked = items.scroll;
+    document.getElementById("myRange").value = items.widthS;
     document.getElementById('defC').value = "";
     document.getElementById('hovC').value = "";
     document.getElementById('colC').value = "";
