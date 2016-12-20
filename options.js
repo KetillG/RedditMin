@@ -7,8 +7,8 @@ function save_options() {
   chrome.storage.sync.set({
     defaultColor: colorD,
     hoverColor: colorH,
-    mButton: mHide
-    scroll: scroll,
+    mButton: mHide,
+    scroll: scroll
   }, function() {
     // Update status to let user know options were saved.
     var status = document.getElementById('status');
