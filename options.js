@@ -3,10 +3,12 @@ function save_options() {
   var colorD = document.getElementById('defC').value;
   var colorH = document.getElementById('hovC').value;
   var mHide = document.getElementById('hides').checked;
+  var scroll = document.getElementById('scrolls').checked;
   chrome.storage.sync.set({
     defaultColor: colorD,
     hoverColor: colorH,
     mButton: mHide
+    scroll: scroll,
   }, function() {
     // Update status to let user know options were saved.
     var status = document.getElementById('status');
@@ -24,7 +26,8 @@ function restore_options() {
   chrome.storage.sync.get({
     defaultColor: "D1D1D1",
     hoverColor: "B1B1B1",
-    mButton: true
+    mButton: true,
+    scroll: true
   }, function(items) {
     document.getElementById('defC').style.backgroundColor = '#' + items.defaultColor;
     document.getElementById('hovC').style.backgroundColor = '#' + items.hoverColor;
