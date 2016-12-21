@@ -13,20 +13,32 @@ chrome.storage.sync.get({
   scroll: true,
   widthS: 100
 }, function(items) {
+  var css = ""
   // css variables
-  console.log(items);
-  var bColor = 'background-color: #' + items.defaultColor + '!important;';
-  var hColor = 'background-color: #' + items.hoverColor + '!important;';
+  var bColor = 'background-color: #' + items.defaultColor + ';';
+  var hColor = 'background-color: #' + items.hoverColor + ';';
   var cColor = "background-color: #" + items.collapsedColor + "!important;"
   var cButton = "";
   if(items.mButton) {
     cButton = "color: transparent !important;"
   }
-  // css inserted
-
+  //selects comment body
   var widthI = 2 * (items.widthS / 100);
   var widthO = 2.5 * (items.widthS / 100);
-  var css = ".comment .expand { margin-right: 3px; padding: 1px; height: 100%; background-image: none !important; position: absolute; top: 0; left: 0; bottom: 0; width: "+ widthI +"em; text-align: center; " + bColor + cButton + " font-size: 10px; transition: color .15s,background-color .15s; } .child>.sitetable>.comment>.thing {padding-left: "+ widthO +"em !important;}  .commentarea>.sitetable>.comment {padding-left: "+ widthO +"em !important;} .commentarea>.sitetable>.comment .thing{padding-left: "+ widthO +"em !important; background: #fff; box-shadow: 0px 1px 5px rgba(0,0,0,.16); border: none!important; margin-bottom: 10px; margin-left: 0px !important;}.comment, body.res-commentBoxes .comment, html body.res .comment { position: relative; padding: 10px 10px 10px "+ widthO +"em !important; padding-left: "+ widthO +"em!important; border: 1px solid #EEE; }.comment .expand:hover { text-decoration: none; background-image: none !important; " + hColor + cButton + " } .comment>.entry>.tagline>.expand {" + cButton + "} .sitetable>.comment>.child>.sitetable>.comment .thing{ padding-left: "+ widthO +"em !important; } .collapsed a.expand {" + bColor + "} .collapsed>.entry>.tagline>.expand {" + cColor + "}";
+
+  // makes css
+  var comments = document.querySelectorAll(".comment");
+  var commentRefrencer = "";
+  for (var i = 0; i < comments.length; i++) {
+    if(comments[i].classList.contains('deleted')){
+      comments[i].id = "del" + i;
+    }
+    css += '#' + comments[i].id + " {padding-left: "+ widthO +"em !important; background: #fff !important; box-shadow: 0px 1px 5px rgba(0,0,0,.16) !important; border: none !important; margin-bottom: 10px !important; margin-left: 0px !important;  position: relative; padding: 10px 10px 10px "+ widthO +"em !important; padding-left: "+ widthO +"em!important; border: 1px solid #EEE;}";
+    css += '#' + comments[i].id + ".collapsed>.entry>.tagline>.expand{" + cColor + cButton + "}";
+    css += '#' + comments[i].id + ">.entry>.tagline>.expand:hover { text-decoration: none; background-image: none !important; " + hColor + cButton + " }";
+    css += '#' + comments[i].id + ">.entry>.tagline>.expand { margin-right: 3px !important; padding: 1px !important; height: 100% !important; background-image: none !important; position: absolute !important; top: 0 !important; left: 0 !important; bottom: 0 !important; width: "+ widthI +"em !important; text-align: center !important; " + bColor + cButton + " font-size: 10px !important; transition: color .15s,background-color .15s; }";
+  }
+
   style = document.createElement('style');
   if (style.styleSheet) {
     style.styleSheet.cssText = css;
