@@ -5,6 +5,7 @@ script.type = 'text/javascript';
 document.getElementsByTagName('head')[0].appendChild(script);
 
 // gets settings from storage
+var savedSettings;
 chrome.storage.sync.get({
   defaultColor: "D1D1D1",
   hoverColor: "B1B1B1",
@@ -13,6 +14,11 @@ chrome.storage.sync.get({
   scroll: true,
   widthS: 100
 }, function(items) {
+  savedSettings = items;
+  addClickBar(savedSettings);
+});
+function addClickBar(items) {
+  console.log(items);
   var css = ""
   // css variables
   var bColor = 'background-color: #' + items.defaultColor + ';';
@@ -57,6 +63,12 @@ chrome.storage.sync.get({
       });
     }
   }
-});
-
+}
+var getMoreComments = document.querySelectorAll(".morechildren");
+getMoreComments = getMoreComments[a.length - 1];
+getMoreComments.addEventListener('click', function(event) {
+  setTimeout(() => {
+    addClickBar(savedSettings)
+  }, 5000);
+  });
 //var el = document.querySelector(".sitetable");
