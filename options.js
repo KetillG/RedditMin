@@ -28,6 +28,7 @@ function save_options() {
     // Update status to let user know options were saved.
     var status = document.getElementById('status');
     status.textContent = 'Options saved.';
+    changePreview();
     setTimeout(function() {
       status.textContent = '';
     }, 750);
@@ -47,7 +48,7 @@ function restore_options() {
     scroll: true,
     widthS: 100
   }, function(items) {
-    j = items
+    j = items;
     document.getElementById('defC').style.backgroundColor = '#' + items.defaultColor;
     document.getElementById('hovC').style.backgroundColor = '#' + items.hoverColor;
     document.getElementById('colC').style.backgroundColor = '#' + items.collapsedColor;
@@ -57,7 +58,39 @@ function restore_options() {
     document.getElementById('defC').value = "";
     document.getElementById('hovC').value = "";
     document.getElementById('colC').value = "";
+    changePreview();
   });
+}
+function changePreview() {
+  chrome.storage.sync.get({
+    defaultColor: "D1D1D1",
+    hoverColor: "B1B1B1",
+    collapsedColor: "A1A1A1",
+    mButton: true,
+    scroll: true,
+    widthS: 100
+  }, function(items) {
+    console.log(items);
+    j = items;
+    if(items.mButton) {
+      document.querySelector('.min').style.color = 'transparent';
+    } else {
+      document.querySelector('.min').style.color = 'black';
+    }
+    var wid = (items.widthS / 100) * 20 + "px"
+    document.querySelector(".bar").style.width = wid;
+    document.querySelector(".bar").style.backgroundColor = '#' + items.defaultColor;
+  });
+}
+document.querySelector(".bar").addEventListener("mouseover", function(){if(j){changeC();}});
+function changeC() {
+  var a = '#' + j.hoverColor;
+  document.querySelector(".bar").style.backgroundColor = a;
+}
+document.querySelector(".bar").addEventListener("mouseleave", function(){if(j){revC();}});
+function revC() {
+  var a = '#' + j.defaultColor;
+  document.querySelector(".bar").style.backgroundColor = a;
 }
 document.addEventListener('DOMContentLoaded', restore_options);
 document.getElementById('save').addEventListener('click',
