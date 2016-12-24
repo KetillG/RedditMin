@@ -39,7 +39,7 @@ function addClickBar(items) {
     if(comments[i].classList.contains('deleted')){
       comments[i].id = "del" + i;
     }
-    css += '#' + comments[i].id + " {padding-left: "+ widthO +"em !important; background: #fff !important; box-shadow: 0px 1px 5px rgba(0,0,0,.16) !important; border: none !important; margin-bottom: 10px !important; margin-left: 0px !important;  position: relative; padding: 10px 10px 10px "+ widthO +"em !important; padding-left: "+ widthO +"em!important; border: 1px solid #EEE;}";
+    css += '#' + comments[i].id + " {padding-left: "+ widthO +"em !important; box-shadow: 0px 1px 5px rgba(0,0,0,.16) !important; border: none !important; margin-bottom: 10px !important; margin-left: 0px !important;  position: relative; padding: 10px 10px 10px "+ widthO +"em !important; padding-left: "+ widthO +"em!important; border: 1px solid #EEE;}";
     css += '#' + comments[i].id + ".collapsed>.entry>.tagline>.expand{" + cColor + cButton + "}";
     css += '#' + comments[i].id + ">.entry>.tagline>.expand:hover { text-decoration: none; background-image: none !important; " + hColor + cButton + " }";
     css += '#' + comments[i].id + ">.entry>.tagline>.expand { margin-right: 3px !important; padding: 1px !important; height: 100% !important; background-image: none !important; position: absolute !important; top: 0 !important; left: 0 !important; bottom: 0 !important; width: "+ widthI +"em !important; text-align: center !important; " + bColor + cButton + " font-size: 10px !important; transition: color .15s,background-color .15s; }";
