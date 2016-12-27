@@ -4,62 +4,73 @@
 <head>
     <title>Extension Options</title>
     <style>
-    .comment {
-      margin-top: 20px;
-      height: 150px;
-      display: flex;
-      border-width: 1px !important;
-      border-style: solid !important;
-      border-color: rgb(230, 230, 230) !important;
-      border-image: initial !important;
-      width: 80%;
-    }
-    .bar{
-      height: 100%;
-      position: relative;;
-      left: 0;
-      top: 0;
-    }
-    .commentBody {
-      background-color: #fff;
-    }
-    .min{
-      text-align: center;
-      font-size: 1.15em;
-    }
-    .text {
-      width: 90%;
-      padding-left: 20px;
-      padding-right: 5px;
-      font-weight: 400;
-      color: #222222;
-      margin: none;
-    }
-    .spam{
-      color: transparent;
-    }
-    ul {
-      padding-top: 5px;
-      list-style: none;
-      width: 50%;
-      height: 10px;
-    }
-    li {
-      float: left;
-      margin-right: 5px;
-    }
-    .name {
-      color: #369;
-      font-weight: bold;
-      text-decoration: underline;
-    }
-    .point {
-      font-weight: bold;
-      color: rgb(51, 51, 51);
-    }
-    .time {
-      color: #888;
-    }
+        .comment {
+            margin-top: 20px;
+            height: 150px;
+            display: flex;
+            border-width: 1px !important;
+            border-style: solid !important;
+            border-color: rgb(230, 230, 230) !important;
+            border-image: initial !important;
+            width: 80%;
+        }
+
+        .bar {
+            height: 100%;
+            position: relative;
+            ;
+            left: 0;
+            top: 0;
+        }
+
+        .commentBody {
+            background-color: #fff;
+        }
+
+        .min {
+            text-align: center;
+            font-size: 1.15em;
+        }
+
+        .text {
+            width: 90%;
+            padding-left: 20px;
+            padding-right: 5px;
+            font-weight: 400;
+            color: #222222;
+            margin: none;
+        }
+
+        .spam {
+            color: transparent;
+        }
+
+        ul {
+            padding-top: 5px;
+            list-style: none;
+            width: 50%;
+            height: 10px;
+        }
+
+        li {
+            float: left;
+            margin-right: 5px;
+        }
+
+        .name {
+            color: #369;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        .point {
+            font-weight: bold;
+            color: rgb(51, 51, 51);
+        }
+
+        .time {
+            color: #888;
+        }
     </style>
 </head>
 
@@ -93,25 +104,27 @@
     Width
     <input type="range" id="myRange" value="100" max="100" min="50">
   </label>
-
-
+    <br>
     <button id="save">Save</button>
     <hr>
     <div class="comment">
-      <div class="bar">
-        <p class="min">[-]</p>
-        <p class="spam">test</p>
-      </div>
-      <div class="commentBody">
-        <ul>
-          <li class="name">bob</li>
-          <li class="point">11 points</li>
-          <li class="time">2 hours ago</li>
-        </ul>
-        <div class="text">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin feugiat leo eu arcu feugiat ornare. Quisque vulputate pulvinar tortor non feugiat. In vel semper dui. Praesent ut urna nec dui ullamcorper interdum. Vestibulum ut magna dignissim, pharetra neque eget, tempor lectus. Phasellus ac quam nec tortor sagittis sagittis facilisis sed lectus. Integer gravida ligula a dictum tristique. Vestibulum venenatis pharetra sem eu faucibus. Maecenas dui odio, aliquam ac sem tincidunt, suscipit tincidunt nunc. Cras pharetra tellus at suscipit scelerisque. Suspendisse tincidunt felis at quam interdum fringilla. Aliquam facilisis nisi justo, a pellentesque dolor pellentesque non. Vestibulum ornare eros diam, nec pulvinar nulla efficitur nec. Phasellus id urna vitae augue placerat dignissim.</p>
+        <div class="bar">
+            <p class="min">[-]</p>
+            <p class="spam">test</p>
         </div>
-      </div>
+        <div class="commentBody">
+            <ul>
+                <li class="name">bob</li>
+                <li class="point">11 points</li>
+                <li class="time">2 hours ago</li>
+            </ul>
+            <div class="text">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin feugiat leo eu arcu feugiat ornare. Quisque vulputate pulvinar tortor non feugiat. In vel semper dui. Praesent ut urna nec dui ullamcorper interdum. Vestibulum ut magna dignissim,
+                    pharetra neque eget, tempor lectus. Phasellus ac quam nec tortor sagittis sagittis facilisis sed lectus. Integer gravida ligula a dictum tristique. Vestibulum venenatis pharetra sem eu faucibus. Maecenas dui odio, aliquam ac sem tincidunt,
+                    suscipit tincidunt nunc. Cras pharetra tellus at suscipit scelerisque. Suspendisse tincidunt felis at quam interdum fringilla. Aliquam facilisis nisi justo, a pellentesque dolor pellentesque non. Vestibulum ornare eros diam, nec pulvinar
+                    nulla efficitur nec. Phasellus id urna vitae augue placerat dignissim.</p>
+            </div>
+        </div>
     </div>
 
     <div id="status"></div>
