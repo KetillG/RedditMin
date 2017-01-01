@@ -1,6 +1,5 @@
 // Saves options to chrome.storage
 function save_options() {
-  console.log(j);
   var colorD = document.getElementById('defC').value;
   if(colorD === "") {
     colorD = "D1D1D1";
@@ -16,7 +15,7 @@ function save_options() {
   var mHide = document.getElementById('hides').checked;
   var scroll = document.getElementById('scrolls').checked;
   var widthB = document.getElementById("myRange").value;
-  console.log(widthB);
+  // pushes settings to the extension saved data
   chrome.storage.sync.set({
     defaultColor: colorD,
     hoverColor: colorH,
@@ -37,6 +36,7 @@ function save_options() {
 
 // Restores select box and checkbox state using the preferences
 // stored in chrome.storage.
+// stores the last saved options
 var j;
 function restore_options() {
   // Use default value color = 'red' and likesColor = true.
@@ -61,6 +61,7 @@ function restore_options() {
     changePreview();
   });
 }
+// creates preview of how it would look
 function changePreview() {
   chrome.storage.sync.get({
     defaultColor: "D1D1D1",
@@ -70,7 +71,6 @@ function changePreview() {
     scroll: true,
     widthS: 100
   }, function(items) {
-    console.log(items);
     j = items;
     if(items.mButton) {
       document.querySelector('.min').style.color = 'transparent';
@@ -82,6 +82,7 @@ function changePreview() {
     document.querySelector(".bar").style.backgroundColor = '#' + items.defaultColor;
   });
 }
+// eventlisteners to change the color of the bar when mouseovered
 document.querySelector(".bar").addEventListener("mouseover", function(){if(j){changeC();}});
 function changeC() {
   var a = '#' + j.hoverColor;
