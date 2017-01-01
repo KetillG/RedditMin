@@ -17,14 +17,16 @@ chrome.storage.sync.get({
   savedSettings = items;
   addClickBar(savedSettings);
 });
+// makes the bar it self
 function addClickBar(items) {
   console.log(items);
-  var css = ""
+  var css = "";
   // css variables
   var bColor = 'background-color: #' + items.defaultColor + ';';
   var hColor = 'background-color: #' + items.hoverColor + ';';
   var cColor = "background-color: #" + items.collapsedColor + "!important;"
   var cButton = "";
+  // if transparent is enabled then...
   if(items.mButton) {
     cButton = "color: transparent !important;"
   }
@@ -32,9 +34,10 @@ function addClickBar(items) {
   var widthI = 2 * (items.widthS / 100);
   var widthO = 2.5 * (items.widthS / 100);
 
-  // makes css
+  // fetches the ids of each comment
   var comments = document.querySelectorAll(".comment");
   var commentRefrencer = "";
+  // makes css for each id to have higher specificity than the subreddit custom css
   for (var i = 0; i < comments.length; i++) {
     if(comments[i].classList.contains('deleted')){
       comments[i].id = "del" + i;
@@ -44,7 +47,7 @@ function addClickBar(items) {
     css += '#' + comments[i].id + ">.entry>.tagline>.expand:hover { text-decoration: none; background-image: none !important; " + hColor + cButton + " }";
     css += '#' + comments[i].id + ">.entry>.tagline>.expand { margin-right: 3px !important; padding: 1px !important; height: 100% !important; background-image: none !important; position: absolute !important; top: 0 !important; left: 0 !important; bottom: 0 !important; width: "+ widthI +"em !important; text-align: center !important; " + bColor + cButton + " font-size: 10px !important; transition: color .15s,background-color .15s; }";
   }
-
+  // injects the css made into the reddit
   style = document.createElement('style');
   if (style.styleSheet) {
     style.styleSheet.cssText = css;
@@ -64,6 +67,7 @@ function addClickBar(items) {
     }
   }
 }
+// when the load more comments button is clicked it reruns the code
 var getMoreComments = document.querySelectorAll(".morechildren");
 getMoreComments = getMoreComments[a.length - 1];
 getMoreComments.addEventListener('click', function(event) {
@@ -71,4 +75,3 @@ getMoreComments.addEventListener('click', function(event) {
     addClickBar(savedSettings)
   }, 5000);
   });
-//var el = document.querySelector(".sitetable");
