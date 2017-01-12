@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Reddit minimize",
-  "version": "0.6.1",
+  "version": "0.7",
   "permissions": [
     "storage"
   ],
@@ -12,7 +12,8 @@
   "content_scripts": [
     {
       "matches": [
-        "*://www.reddit.com/r/*/comments/*"
+        "*://www.reddit.com/r/*/comments/*",
+        "*://np.reddit.com/r/*/comments/*"
       ],
       "js": ["jquery.js", "colors.js"]
     }

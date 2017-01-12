@@ -46,7 +46,7 @@ function restore_options() {
     collapsedColor: "A1A1A1",
     mButton: true,
     scroll: true,
-    widthS: 100
+    widthS: 60
   }, function(items) {
     j = items;
     document.getElementById('defC').style.backgroundColor = '#' + items.defaultColor;
@@ -69,7 +69,7 @@ function changePreview() {
     collapsedColor: "A1A1A1",
     mButton: true,
     scroll: true,
-    widthS: 100
+    widthS: 60
   }, function(items) {
     j = items;
     if(items.mButton) {

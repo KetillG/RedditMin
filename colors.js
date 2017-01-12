@@ -12,7 +12,7 @@ chrome.storage.sync.get({
   collapsedColor: "A1A1A1",
   mButton: true,
   scroll: true,
-  widthS: 100
+  widthS: 60
 }, function(items) {
   savedSettings = items;
   addClickBar(savedSettings);
@@ -46,6 +46,9 @@ function addClickBar(items) {
     css += '#' + comments[i].id + ".collapsed>.entry>.tagline>.expand{" + cColor + cButton + "}";
     css += '#' + comments[i].id + ">.entry>.tagline>.expand:hover { text-decoration: none; background-image: none !important; " + hColor + cButton + " }";
     css += '#' + comments[i].id + ">.entry>.tagline>.expand { margin-right: 3px !important; padding: 1px !important; height: 100% !important; background-image: none !important; position: absolute !important; top: 0 !important; left: 0 !important; bottom: 0 !important; width: "+ widthI +"em !important; text-align: center !important; " + bColor + cButton + " font-size: 10px !important; transition: color .15s,background-color .15s; }";
+    css += '#' + comments[i].id + ".comment.gilded p.tagline {position: static;}";
+    css += '#' + comments[i].id + ".thing .RES-keyNav-activeElement {position: static !important;}";
+    css += '#' + comments[i].id + ".entry {position: static;}";
   }
   // injects the css made into the reddit
   style = document.createElement('style');
